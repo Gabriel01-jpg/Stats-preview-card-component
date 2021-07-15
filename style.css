@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+
+/* 
+### Primary
+
+- Very dark blue (main background): hsl(233, 47%, 7%)
+- Dark desaturated blue (card background): hsl(244, 38%, 16%)
+- Soft violet (accent): hsl(277, 64%, 61%)
+
+### Neutral
+
+- White (main heading, stats): hsl(0, 0%, 100%)
+- Slightly transparent white (main paragraph): hsla(0, 0%, 100%, 0.75)
+- Slightly transparent white (stat headings): hsla(0, 0%, 100%, 0.6)
+*/
+
+:root{
+    --main-background-color: hsl(233, 47%, 7%);
+    --cards-background-color: hsl(244, 38%, 16%);
+    --img-color: hsl(277, 64%, 61%);
+    --main-heading-color: hsl(0, 0%, 100%);
+    --main-paragraph: hsla(0, 0%, 100%, 0.75);
+    --stat-heading-color: hsla(0, 0%, 100%, 0.6);
+}
+
+body {
+    background-color: black;
+    color: white;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+span {
+    font-family: 'Lexend Deca', sans-serif;
+    color: var(--img-color);
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 15px 0 0;
+}
+
+.container {
+    width: 75%;
+    height: 90%;
+    background-color: var(--cards-background-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.image {
+    position: relative;
+}
+
+.image::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(52, 17, 71, 0.5);
+    border-radius: 15px 15px 0 0;
+}
+
+
+.texts {
+    flex-grow: 2;
+    font-size: 15px;
+    flex-direction: column;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr 3fr;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+}
+
+.texts .header{
+    margin-left: auto;
+    margin-right: auto;
+    font: 400 15px 'Lexend Deca', sans-serif;
+    width: 75%;
+}
+
+.texts .header h1{
+    text-align: center;
+    
+}
+
+.texts .description{
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    color: var(--stat-heading-color);
+    line-height: 1.5rem;
+
+}
+
+
+.cards {
+    display: grid;
+    gap: 1rem
+}
+
+.cards h2 {
+    font-family: 'Inter', sans-serif;
+    margin-top: 10px;
+    
+    
+}
+.cards p {
+    font: 400 10px 'Inter', sans-serif;
+    text-transform: uppercase;
+    color: var(--stat-heading-color);
+    letter-spacing: 2px;
+}
+
+@media (max-height: 812px){
+    .container {
+        height: 90%;
+    }
+
+
+
+    .texts {
+        grid-template-rows: 1fr 1fr 3fr;
+    }
+
+    .texts .description{
+        font-size: 12px;
+        line-height: 1.3rem;
+    
+    }
+    .cards {
+        font-size: 10px;
+        display: grid;
+        gap: .2rem;
+    }
+
+}
+
+@media (min-width: 1200px){
+    .container {
+        width: 60%;
+        height: 50%;
+        flex-direction: row 
+    }
+
+    .image {
+        position: relative;
+        order: 2;
+        object-fit: contain;
+    }
+}
